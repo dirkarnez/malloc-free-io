@@ -4,8 +4,8 @@ cd /d %~dp0
 set DOWNLOADS_DIR=%USERPROFILE%\Downloads
 set DOWNLOADS_DIR_LINUX=%DOWNLOADS_DIR:\=/%
 
-set PREFIX=%DOWNLOADS_DIR%
-@REM set PREFIX=D:\Softwares
+@REM set PREFIX=%DOWNLOADS_DIR%
+set PREFIX=D:\Softwares
 
 SET PATH=^
 %PREFIX%\PortableGit\bin;^

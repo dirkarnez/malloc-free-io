@@ -6,14 +6,14 @@
 struct my_struct {
   uint32_t a;
   uint16_t b;
-};
+} __attribute__((packed));  
 
 int main ()
 {
     FILE *fpA;
     FILE *fpB;
     {
-        fpA = fopen( "a.txt" , "w" );
+        fpA = fopen( "a" , "w" );
         for (int i = 0; i < 2; i++)
         {
             if (i == 0) {
@@ -29,11 +29,13 @@ int main ()
     }
 
     {
-        fpB = fopen( "b.txt" , "w" );
+        // packing is needed otherwise b will have extra zeros due to automatic alignment done by compiler
+        fpB = fopen( "b" , "w" );
         struct my_struct s;
+        memset(&s, 0, sizeof(struct my_struct));
         s.a = 0xFEEDFACFu;
         s.b = 0x123;
-        fwrite(&s, sizeof(s) , 1, fpB );
+        fwrite(&s, sizeof(struct my_struct) , 1, fpB );
     }
 
     fclose(fpA);

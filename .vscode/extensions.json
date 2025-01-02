@@ -1,0 +1,8 @@
+{
+    "recommendations": [
+        "asurance.binary-preview",
+        "ms-vscode.cmake-tools",
+        "ms-vscode.cpptools",
+        "ms-vscode.cpptools-extension-pack"
+    ]
+}
